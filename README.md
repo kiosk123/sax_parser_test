@@ -8,7 +8,8 @@ jdk 8
 gradle 6.5.1
 
 ## 테스트 데이터
-- ${프로젝트 폴더}/data/data.xml
+- 창업넷 데이터 item 데이터 500개
+  - 데이터 위치 : ${프로젝트 폴더}/data/data.xml
 ```xml
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <response>
@@ -43,7 +44,13 @@ gradle 6.5.1
 </response>
 ```
 ## 구현
-SAX 파서는 이벤트 방식으로 동작한다 즉 
+SAX 파서는 이벤트 방식으로 동작한다 즉 스트림으로 읽으면서 특정 태그 이름과 매치될때 데이터를 처리하면 된다.  
+구현은 ItemSaxHandler.java를 참고한다.  
+
+## 성능
+변칙성이 없고 정형화된 XML 데이터일 경우 SAX 파서가 월등한 성능을 보여준다.  
+총 500개의 item 태그의 데이터를 자바 객체로 변환하는 데 고작 0.7초 밖에 걸리지 않았다.  
+실제로 API를 호출해서 데이터를 가져오는 시간도 고려해야 하지만 데이터를 10000개 처리할 경우 14초 정도 걸릴 것으로 예상된다.  
 
 ## 참고
 - [XML Parser 정리](https://hongkyu.tistory.com/m/79)

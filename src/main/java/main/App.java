@@ -21,6 +21,8 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class App {
     public static void main(String[] args) {
+        long startTime = System.currentTimeMillis();
+
         File file = new File("data/data.xml");
 		String xmlStr = "";
         try {
@@ -53,9 +55,13 @@ public class App {
             list.forEach(item -> log.debug(item.toString()));
 			
             log.debug("list size : {}", list.size());
-		}catch(Exception e) {
+		} catch(Exception e) {
 			e.printStackTrace();
-		}	
+		}
+        
+        long endTime = System.currentTimeMillis();
+        log.info("<<<<<<<<<<<<<<<<<<< process time : {} >>>>>>>>>>>>>>>>>>>>>>>>>>>>>", endTime - startTime);
+        
     }
 
     private static String xmlFileToString(File file) throws IOException {
