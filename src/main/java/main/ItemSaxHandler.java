@@ -22,13 +22,14 @@ public class ItemSaxHandler extends DefaultHandler {
     private int totalCount = 0;
     private int numOfRows = 0;
     private String resultCode = "";
+    private String resultMsg = "";
 
     /**
      * 시작 태그를 만났을 때 이벤트 발생
      */
     @Override
     public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
-        if ("item".equals(qName)) {
+        if ("item".equalsIgnoreCase(qName)) {
             itemVo = new ItemVo();
         } 
     }
@@ -38,44 +39,46 @@ public class ItemSaxHandler extends DefaultHandler {
      */
     @Override
     public void endElement(String uri, String localName, String qName) throws SAXException {
-        if ("item".equals(qName)) { 
+        if ("item".equalsIgnoreCase(qName)) { 
             items.add(itemVo);
             itemVo = null; /** itemVo는 여기서 null 처리 */
-        } else if ("biztitle".equals(qName)) {
+        } else if ("biztitle".equalsIgnoreCase(qName)) {
             itemVo.setBiztitle(value);
-        } else if ("detailurl".equals(qName)) {
+        } else if ("detailurl".equalsIgnoreCase(qName)) {
             itemVo.setDetailurl(value);
-        } else if ("enddate".equals(qName)) {
+        } else if ("enddate".equalsIgnoreCase(qName)) {
             itemVo.setEnddate(value);
-        } else if ("insertdate".equals(qName)) {
+        } else if ("insertdate".equalsIgnoreCase(qName)) {
             itemVo.setInsertdate(value);
-        } else if ("organizationname".equals(qName)) {
+        } else if ("organizationname".equalsIgnoreCase(qName)) {
             itemVo.setOrganizationname(value);
-        } else if ("postsn".equals(qName)) {
+        } else if ("postsn".equalsIgnoreCase(qName)) {
             itemVo.setPostsn(value);
-        } else if ("posttarget".equals(qName)) {
+        } else if ("posttarget".equalsIgnoreCase(qName)) {
             itemVo.setPosttarget(value);
-        } else if ("posttargetage".equals(qName)) {
+        } else if ("posttargetage".equalsIgnoreCase(qName)) {
             itemVo.setPosttargetage(value);
-        } else if ("startdate".equals(qName)) {
+        } else if ("startdate".equalsIgnoreCase(qName)) {
             itemVo.setStartdate(value);
-        } else if ("supporttype".equals(qName)) {
+        } else if ("supporttype".equalsIgnoreCase(qName)) {
             itemVo.setSupporttype(value);
-        } else if ("title".equals(qName)) {
+        } else if ("title".equalsIgnoreCase(qName)) {
             itemVo.setTitle(value);
-        } else if ("viewcount".equals(qName)) {
+        } else if ("viewcount".equalsIgnoreCase(qName)) {
             itemVo.setViewcount(value);
-        } else if ("areaname".equals(qName)) {
+        } else if ("areaname".equalsIgnoreCase(qName)) {
             itemVo.setAreaname(value);
-        } else if ("posttargetcomage".equals(value)) {
+        } else if ("posttargetcomage".equalsIgnoreCase(qName)) {
             itemVo.setPosttargetcomage(value);
-        } else if ("resultCode".equals(qName)) {
+        } else if ("resultCode".equalsIgnoreCase(qName)) {
             resultCode = value;
-        } else if ("totalCount".equals(qName)) {
+        } else if ("totalCount".equalsIgnoreCase(qName)) {
             totalCount = Integer.parseInt(value);
-        } else if ("numOfRows".equals(qName)) {
+        } else if ("numOfRows".equalsIgnoreCase(qName)) {
             numOfRows = Integer.parseInt(value);
-        } 
+        } else if ("resultMsg".equalsIgnoreCase(qName)) {
+            resultMsg = value;
+        }
         value = null;
     }
 
@@ -97,6 +100,10 @@ public class ItemSaxHandler extends DefaultHandler {
 
     public int getNumOfRows() {
         return numOfRows;
+    }
+
+    public String getResultMsg() {
+        return resultMsg;
     }
     
 }
