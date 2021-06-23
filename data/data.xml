@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<response>
+	<header>
+		<resultCode>00</resultCode>
+		<resultMsg>NORMAL SERVICE.</resultMsg>
+	</header>
+	<body>
+		<items>
+			<item>
+				<biztitle>한국-터키 창업웨비나</biztitle>
+				<detailurl>http://www.k-startup.go.kr/common/announcement/announcementDetail.do?mid=30004&amp;bid=701&amp;searchPostSn=136541&amp;searchAncmId=&amp;searchDtlAncmSn=0&amp;searchPrefixCode=BOARD_701_001&amp;searchBusinessSn=0</detailurl>
+				<enddate>20210628</enddate>
+				<insertdate>20210623</insertdate>
+				<organizationname>(재)글로벌청년창업가재단</organizationname>
+				<postsn>136541</postsn>
+				<posttarget>전체</posttarget>
+				<posttargetage>전체</posttargetage>
+				<posttargetcomage>전체</posttargetcomage>
+				<startdate>20210623</startdate>
+				<supporttype>행사·네트워크</supporttype>
+				<title>한국-터키 기업가정신과 스타트업 생태계 
+웨비나 참가 모집</title>
+				<viewcount>37</viewcount>
+			</item>
+		</items>
+		<numOfRows>30</numOfRows>
+		<pageNo>1</pageNo>
+		<totalCount>11205</totalCount>
+	</body>
+</response>
